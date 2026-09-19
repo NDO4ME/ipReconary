@@ -1,0 +1,23 @@
+# Build artifacts
+/target/
+Cargo.lock
+/release/
+
+# Output files
+*.out
+ipReconary.out
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*

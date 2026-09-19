@@ -1,0 +1,31 @@
+[package]
+name = "ipReconary"
+version = "1.0.0"
+edition = "2021"
+authors = ["NDO4ME"]
+description = "High-performance network reconnaissance tool for discovering origin IPs behind CDN/WAF"
+license = "MIT"
+repository = "https://github.com/NDO4ME/ipReconary"
+keywords = ["network", "security", "reconnaissance", "cdn", "waf"]
+categories = ["command-line-utilities", "network-programming"]
+
+[[bin]]
+name = "ipReconary"
+path = "src/main.rs"
+
+[dependencies]
+tokio = { version = "1", features = ["full", "sync"] }
+reqwest = { version = "0.12", features = ["rustls-tls", "socks", "gzip", "brotli", "deflate", "blocking"], default-features = false }
+clap = { version = "4", features = ["derive"] }
+ipnetwork = "0.20"
+rand = "0.8"
+md5 = "0.7"
+scraper = "0.21"
+ctrlc = "3.4"
+regex = "1"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
